@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><! <html class="no-js"> <![endif]-->
+<html>
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+
+
+
+    <body>
+
+
+        <SCRIPT TYPE="text/javascript">
+            var count = "1";
+            function addRow(in_tbl_name)
+            {
+                var tbody = document.getElementById(in_tbl_name).getElementsByTagName("TBODY")[0];
+                // create row
+                var row = document.createElement("TR");
+                // create table cell 1
+                var td1 = document.createElement("TD")
+                var strHtml1 = "<FONT SIZE=\"+1\">*</FONT>";
+                td1.innerHTML = strHtml1.replace(/!count!/g, count);
+                // create table cell 2
+                var td2 = document.createElement("TD")
+                var strHtml2 = "<SELECT NAME=\"Animal\"><OPTION VALUE=\"Java\">Java<OPTION VALUE=\"Python\">Python<OPTION VALUE=\"JavaScript\">JavaScript</SELECT>";
+                td2.innerHTML = strHtml2.replace(/!count!/g, count);
+                // create table cell 3
+                var td3 = document.createElement("TD")
+                var strHtml3 = "<INPUT TYPE=\"text\" NAME=\"in_name\" SIZE=\"30\" MAXLENGTH=\"30\"  STYLE=\"height:16;border: 1 solid;margin:0;\">";
+                td3.innerHTML = strHtml3.replace(/!count!/g, count);
+                // create table cell 4
+                var td4 = document.createElement("TD")
+                var strHtml4 = "<INPUT TYPE=\"text\" NAME=\"in_name\" SIZE=\"5\" MAXLENGTH=\"5\"  STYLE=\"height:16;border: 1 solid;margin:0;\">";
+                td4.innerHTML = strHtml4.replace(/!count!/g, count);
+                // create table cell 5
+                var td5 = document.createElement("TD")
+                var strHtml5 = "<INPUT TYPE=\"Button\" CLASS=\"Button\" onClick=\"delRow()\" VALUE=\"Delete Row\">";
+                td5.innerHTML = strHtml5.replace(/!count!/g, count);
+                // append data to row
+                row.appendChild(td1);
+                row.appendChild(td2);
+                row.appendChild(td3);
+                row.appendChild(td4);
+                row.appendChild(td5);
+                // add to count variable
+                count = parseInt(count) + 1;
+                // append row to table
+                tbody.appendChild(row);
+            }
+            function delRow()
+            {
+                var current = window.event.srcElement;
+                //here we will delete the line
+                while ((current = current.parentElement) && current.tagName != "TR")
+                    ;
+                current.parentElement.removeChild(current);
+            }
+        </SCRIPT>
+
+
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <p>List of Concepts and Technologies Completed </p>
+
+        <TABLE ID="tblPets" border="1" STYLE="border-width:1;background color:#F0E68C;">
+            <TR><TH>Bullets</TH><TH WIDTH="70">Technology</TH><TH WIDTH="230">Concepts</TH><TH WIDTH="70">Sub Category</TH><TD ALIGN="center"><INPUT TYPE="Button" onClick="addRow('tblPets')" VALUE="Add Row"></TD></TR>
+            <TR><TD>*</TD><TD>Java</TD><TD>ORM</TD><TD>Hibernate</TD><TD><INPUT TYPE="Button" CLASS="Button" onClick="delRow()" VALUE="Delete Row"></TD></TR>
+            <TR><TD>*</TD><TD>Java</TD><TD>JPA</TD><TD>EclipseLink</TD><TD><INPUT TYPE="Button" CLASS="Button" onClick="delRow()" VALUE="Delete Row"></TD></TR>
+            <TR><TD>*</TD><TD>Python</TD><TD>Web Server</TD><TD>Tornado</TD><TD><INPUT TYPE="Button" CLASS="Button" onClick="delRow()" VALUE="Delete Row"></TD></TR>
+        </TABLE>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+                var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+                (function (d, t) {
+                    var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+                    g.src = '//www.google-analytics.com/ga.js';
+                    s.parentNode.insertBefore(g, s)
+                }(document, 'script'));
+        </script>
+    </body>
+</html>
